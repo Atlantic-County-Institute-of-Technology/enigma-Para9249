@@ -1,5 +1,5 @@
 # enigma.py
-# description: a simple rotational ciphertext program that can create
+# description: a simple rotational ciphertext program that can create1
 # custom encoded messages, as well as encode and decode from file.
 # author: Christopher Parada
 # created: 11/18/2024
@@ -11,13 +11,17 @@ import random
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 # user inputs a message and selects a key (or random), the message is then translated using the cipher
-def encode_message(message, offset=13, chars=None):
-    emc_chars = str.maketran(
-        f'{chars[0]}{chars[1]}'
-        f'{chars[0][offset:]}{chars[0][:offset]}{chars[1][offset:]}{chars[1][:offset]}'
-    )
-
-# encodes a target file, similarly to encode_message, except now targeting a filename
+def encode_message():
+    message = (input("Please input the message you would like to decode"))
+    key = int(input("Please input the key(leave blank for random)"))
+    if key == "":
+        key = random.randint(0,26)
+    print(key)
+    for x in range(len(message)):
+        ordmessage = ord(message[x])
+        ordmessage = ordmessage + key
+        print(chr(ordmessage))
+    # encodes a target file, similarly to encode_message, except now targeting a filename
 def encode_file():
     pass
 
@@ -34,14 +38,15 @@ def decode_unknown_key(filename):
 # main method declaration
 def main():
     while True:
-        print(f"Welcome to the Enigma Machine!\n"
+        print(f"welcome to the machine that encodes stuff\n"
               f"Please select an option:\n"
               f"[1]: Encode a custom message.\n"
-              f"[2]: Encode file.\n"
-              f"[3]: Decode file.\n"
+              f"[2]: Encode a file.\n"
+              f"[3]: Decode a file.\n"
               f"[4]: Exit.")
 
         selection = input("Choose an option:")
+
         if selection == "1":
             encode_message()
         elif selection == "2":
