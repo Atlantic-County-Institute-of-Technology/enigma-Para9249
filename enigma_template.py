@@ -7,13 +7,12 @@
 
 import random
 
-# we'll be using this string for the majority of our translations
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-# user inputs a message and selects a key (or random), the message is then translated using the cipher
+# user inputs a message and selects a key, the message is then translated 
 def encode_message():
     message = (input("Please input the message you would like to decode"))
-    key = int(input("Please input the key(leave blank for random)"))
+    key = int(input("Please input the key"))
     if key == "":
         key = random.randint(0,26)
     print(key)
@@ -21,16 +20,15 @@ def encode_message():
         ordmessage = ord(message[x])
         ordmessage = ordmessage + key
         print(chr(ordmessage))
-    # encodes a target file, similarly to encode_message, except now targeting a filename
+    # encodes a  file, similarly to encode_message, except now targeting a filename
 def encode_file():
     pass
 
-# decodes target file using a user-specified key. If key is unknown, a keypress should
-# call decode_unknown_key()
+# decodes file using a user-specified key. If key is unknown, a keypress should  call decode_unknown_key()
 def decode_file():
     pass
 
-# runs if the key is unknown. If this is true, print out all possible decoding combinations.
+# runs if the key is unknown. Prints out all possible combinations.
 def decode_unknown_key(filename):
    pass
 
